@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="studentList"></section>
+    <script> 
+    fetch("http://localhost:2003/student")
+    .then((res)=>{
+        console.log(res)
+         return res.json();
+    })
+    .then((call)=>{
+        console.log(call)
+        show(call);
+        
+
+    })
+    function show(students){
+        for(var i=0;i<students.length;i++){
+            document.getElementById("studentList").innerHTML+=
+            `<div>
+                <p>${students[i].studentname}</p>
+            </div>
+            `
+            
+        }
+
+    }
+
+    
+</script>
+
+</body>
+</html>
